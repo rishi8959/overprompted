@@ -1,15 +1,21 @@
-if (
-  tool.tool === "cursor" &&
-  tool.plan === "business" &&
-  tool.seats <= 2
-) {
-  recommendations.push({
-    tool: "cursor",
-    currentSpend: 80,
-    recommendedSpend: 40,
-    monthlySavings: 40,
-    annualSavings: 480,
-    reason:
-      "Cursor Business is typically unnecessary for teams under 3 seats.",
+import { UsageRecord, AuditFinding } from "@/types/audit";
+
+export function runAudit(data: UsageRecord[]): AuditFinding[] {
+  const findings: AuditFinding[] = [];
+
+  data.forEach((item, index) => {
+    const totalTokens = item.inputTokens + item.outputTokens;
+
+    if (item.model === "gpt-4o" && totalTokens > 3000000) {
+      findings.push({
+        id: String(index),
+        title: "High GPT-4o Usage",
+        severity: "high",
+        savings: totalTokens * 0.00001,
+        recommendation: "Consider switching to Claude for simpler tasks",
+      });
+    }
   });
+
+  return findings;
 }
