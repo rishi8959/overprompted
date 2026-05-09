@@ -1,16 +1,17 @@
-it("downgrades cursor business for small teams", () => {
-  const result = runAudit({
-    teamSize: 2,
-    primaryUseCase: "coding",
-    tools: [
-      {
-        tool: "cursor",
-        plan: "business",
-        monthlySpend: 80,
-        seats: 2,
-      },
-    ],
-  });
+import { runAudit } from "@/lib/audit-engine";
+import { describe, it, expect } from "vitest";
 
-  expect(result[0].monthlySavings).toBe(40);
+describe("audit engine", () => {
+  it("detects high usage", () => {
+    const result = runAudit([
+      {
+        model: "gpt-4o",
+        inputTokens: 2000000,
+        outputTokens: 4000000,
+        requests: 1000,
+      },
+    ]);
+
+    expect(result.length).toBeGreaterThan(0);
+  });
 });
