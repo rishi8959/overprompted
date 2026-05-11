@@ -7,8 +7,16 @@ export interface UsageRecord {
 
 export interface AuditFinding {
   id: string;
+
   title: string;
+
   severity: "low" | "medium" | "high";
+
+  category: string;
+
+  confidence: number;
+
   savings: number;
+
   recommendation: string;
 }
