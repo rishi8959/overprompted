@@ -22,3 +22,32 @@ Upload File
 → Generate Findings
 → Calculate Savings
 → Render Results
+
+## Audit Engine Architecture
+
+The audit engine processes uploaded AI usage data
+and applies deterministic optimization rules.
+
+### Current Rule Categories
+
+- Model Optimization
+- Token Efficiency
+- Request Batching
+- Prompt Optimization
+
+### Audit Flow
+
+Upload File
+→ Parse Usage Data
+→ Execute Audit Rules
+→ Generate Findings
+→ Calculate Savings
+→ Render Dashboard
+
+### Finding Structure
+
+Each finding includes:
+- severity
+- confidence score
+- estimated savings
+- optimization recommendation
