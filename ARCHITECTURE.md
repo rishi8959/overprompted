@@ -51,3 +51,33 @@ Each finding includes:
 - confidence score
 - estimated savings
 - optimization recommendation
+
+## Persistence Layer
+
+The application now stores completed audits
+inside Supabase.
+
+### Storage Flow
+
+Run Audit
+→ Generate Findings
+→ Calculate Savings
+→ Save Audit to Supabase
+→ Persist Historical Results
+
+### Database Table
+
+Table: audits
+
+Columns:
+- id
+- created_at
+- findings
+- total_savings
+- upload_name
+
+### Benefits
+
+- Persistent audit history
+- Historical savings tracking
+- Foundation for future analytics

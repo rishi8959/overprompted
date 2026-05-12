@@ -41,3 +41,30 @@ npm run dev
 # Deployment
 
 Hosted on Vercel.
+
+# Backend Integration
+
+The project now includes Supabase integration
+for persistent audit storage.
+
+## Features
+
+- Save completed audits
+- Store findings as JSON
+- Track estimated savings
+- Historical audit persistence
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Supabase
+- Vercel
+
+## Current Workflow
+
+Run Audit
+→ Generate Findings
+→ Save Audit
+→ Persist Results

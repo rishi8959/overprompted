@@ -29,3 +29,13 @@
 - Added parser error handling
 - Improved dashboard structure
 - Added realistic enterprise usage patterns
+
+## Day 5
+
+- Integrated Supabase database
+- Added audit persistence layer
+- Implemented audit save functionality
+- Added loading state handling
+- Improved findings dashboard
+- Connected frontend workflow to database
+- Verified database inserts successfully
