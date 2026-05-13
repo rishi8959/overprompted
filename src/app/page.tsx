@@ -2,25 +2,41 @@
 
 import { useState } from "react";
 
-import { saveAudit } from "@/lib/save-audit";
+import UploadForm from "@/components/audit/upload-form";
 
-import { mockUsage } from "@/data/mock-usage";
+import { parseUsageFile } from "@/lib/parser";
+
+import { saveAudit } from "@/lib/save-audit";
 
 import { runAudit } from "@/lib/audit-engine";
 
 import { sumSavings } from "@/lib/calculations";
 
 export default function Home() {
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] =
+    useState<any[]>([]);
 
   const [loading, setLoading] =
     useState(false);
 
-  const handleRunAudit = async () => {
+  const handleUpload = async (
+    text: string
+  ) => {
     setLoading(true);
 
+    const usage =
+      parseUsageFile(text);
+
+    if (usage.length === 0) {
+      alert("Invalid usage file");
+
+      setLoading(false);
+
+      return;
+    }
+
     const findings =
-      runAudit(mockUsage);
+      runAudit(usage);
 
     setResults(findings);
 
@@ -30,7 +46,7 @@ export default function Home() {
     await saveAudit(
       findings,
       totalSavings,
-      "mock-usage"
+      "uploaded-file"
     );
 
     setLoading(false);
@@ -45,14 +61,15 @@ export default function Home() {
         AI Spend Audit
       </h1>
 
-      <button
-        onClick={handleRunAudit}
-        className="px-4 py-2 bg-black text-white rounded"
-      >
-        {loading
-          ? "Running Audit..."
-          : "Run Audit"}
-      </button>
+      <UploadForm
+        onUpload={handleUpload}
+      />
+
+      {loading && (
+        <p className="mb-4 text-blue-600">
+          Running audit...
+        </p>
+      )}
 
       <div className="mt-6">
         <h2 className="text-xl font-semibold">

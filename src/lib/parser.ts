@@ -1,7 +1,15 @@
 import { UsageRecord } from "@/types/audit";
 
-export function parseUsageData(
+export function parseUsageFile(
   text: string
 ): UsageRecord[] {
-  return JSON.parse(text);
+  try {
+    const parsed = JSON.parse(text);
+
+    return parsed;
+  } catch (error) {
+    console.error("Invalid JSON");
+
+    return [];
+  }
 }

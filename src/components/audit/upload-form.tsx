@@ -1,9 +1,11 @@
 type Props = {
-  onFileRead: (text: string) => void;
+  onUpload: (text: string) => void;
 };
 
-export default function UploadForm({ onFileRead }: Props) {
-  const handleFile = async (
+export default function UploadForm({
+  onUpload,
+}: Props) {
+  const handleFileChange = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const file = e.target.files?.[0];
@@ -12,14 +14,16 @@ export default function UploadForm({ onFileRead }: Props) {
 
     const text = await file.text();
 
-    onFileRead(text);
+    onUpload(text);
   };
 
   return (
-    <input
-      type="file"
-      accept=".json"
-      onChange={handleFile}
-    />
+    <div className="mb-6">
+      <input
+        type="file"
+        accept=".json"
+        onChange={handleFileChange}
+      />
+    </div>
   );
 }
