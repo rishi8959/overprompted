@@ -1,7 +1,7 @@
 [
   {
     "model": "gpt-4o",
-    "inputTokens": 2000000,
-    "outputTokens": 1500000
+    "inputTokens": 5000000,
+    "outputTokens": 4000000
   }
 ]
