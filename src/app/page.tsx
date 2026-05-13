@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import UploadForm from "@/components/audit/upload-form";
 
+import History from "@/components/audit/history";
+
 import { parseUsageFile } from "@/lib/parser";
 
 import { saveAudit } from "@/lib/save-audit";
@@ -56,7 +58,8 @@ export default function Home() {
     sumSavings(results);
 
   return (
-    <main className="p-8 max-w-4xl mx-auto">
+    <main className="p-8 max-w-5xl mx-auto">
+        <History />
       <h1 className="text-3xl font-bold mb-6">
         AI Spend Audit
       </h1>
@@ -85,6 +88,7 @@ export default function Home() {
       )}
 
       <div className="mt-6 space-y-4">
+
         {results.map((r) => (
           <div
             key={r.id}

@@ -4,12 +4,11 @@ export async function getAudits() {
   const { data, error } = await supabase
     .from("audits")
     .select("*")
-    .order("created_at", {
-      ascending: false,
-    });
+    .order("created_at", { ascending: false });
 
   if (error) {
-    console.error(error);
+    console.error("❌ Fetch audits error:", error);
+    return [];
   }
 
   return data;
