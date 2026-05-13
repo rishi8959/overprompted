@@ -114,3 +114,29 @@ Runs cost optimization rules.
 
 ### save-audit.ts
 Stores findings and savings in Supabase.
+
+# Audit History Architecture
+
+## Data Flow
+
+Supabase (audits table)
+→ getAudits()
+→ History Component
+→ UI Rendering
+
+## Components
+
+### get-audits.ts
+Fetches audit records from Supabase.
+
+### history.tsx
+Displays audit history with:
+- loading state
+- empty state
+- data list
+
+## Database
+
+Table: audits
+
+Used for persistent audit storage and history tracking.

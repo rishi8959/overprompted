@@ -83,3 +83,16 @@ The application now supports real JSON uploads.
     "outputTokens": 4000000
   }
 ]
+
+## Audit History Feature
+
+The app now supports viewing past audits stored in Supabase.
+
+### Features
+- Real-time audit history fetch
+- Sorted by latest first
+- Shows upload name, savings, timestamp
+- Handles loading and empty states
+
+### Flow
+Upload → Run Audit → Save to Supabase → View in History

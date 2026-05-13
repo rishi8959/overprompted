@@ -53,3 +53,16 @@
 
 ## Result
 Users can now upload AI usage JSON files and receive audit findings with estimated savings.
+
+# Day 7
+
+## Completed
+- Added Supabase audit history fetching
+- Created getAudits function
+- Built History dashboard component
+- Added loading state UI
+- Added empty state UI
+- Integrated history into main dashboard
+
+## Result
+Users can now view all previously saved audits in a timeline-style dashboard.
