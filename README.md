@@ -68,3 +68,18 @@ Run Audit
 → Generate Findings
 → Save Audit
 → Persist Results
+
+## Upload Workflow
+
+The application now supports real JSON uploads.
+
+### Example Usage File
+
+```json
+[
+  {
+    "model": "gpt-4o",
+    "inputTokens": 5000000,
+    "outputTokens": 4000000
+  }
+]

@@ -39,3 +39,17 @@
 - Improved findings dashboard
 - Connected frontend workflow to database
 - Verified database inserts successfully
+
+# Day 6
+
+## Completed
+- Added real JSON upload workflow
+- Replaced mock usage data
+- Added parser for uploaded files
+- Connected uploads to audit engine
+- Added invalid JSON handling
+- Saved uploaded audits to Supabase
+- Improved loading and results states
+
+## Result
+Users can now upload AI usage JSON files and receive audit findings with estimated savings.

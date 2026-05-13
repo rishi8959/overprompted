@@ -81,3 +81,36 @@ Columns:
 - Persistent audit history
 - Historical savings tracking
 - Foundation for future analytics
+
+
+---
+
+# ✅ `ARCHITECTURE.md`
+
+Add:
+
+```md id="doc3"
+# Upload Audit Architecture
+
+## Flow
+
+UploadForm
+→ parser.ts
+→ audit-engine.ts
+→ calculations.ts
+→ save-audit.ts
+→ Supabase
+
+## Components
+
+### upload-form.tsx
+Handles file uploads and file reading.
+
+### parser.ts
+Parses uploaded JSON into UsageRecord[].
+
+### audit-engine.ts
+Runs cost optimization rules.
+
+### save-audit.ts
+Stores findings and savings in Supabase.

@@ -39,3 +39,20 @@ Verified:
 - Savings calculations
 - Persistence workflow
 - Frontend rendering
+
+# Upload & Parser Testing
+
+## Tested Cases
+
+- Valid JSON upload
+- Invalid JSON upload
+- High GPT-4o usage detection
+- Savings calculations
+- Supabase persistence
+
+## Manual Test Flow
+
+1. Run local server
+2. Upload sample-usage.json
+3. Verify findings render
+4. Verify audit saved in Supabase
